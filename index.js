@@ -18,7 +18,7 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-const seDataInvalida = (data) => data.toUTCSting() === "Data Inválida"
+const seDataInvalida = (data) => data.toUTCString() === "Data Inválida"
 
 
 // your first API endpoint... 
@@ -36,13 +36,13 @@ app.get("/api/:data", function (req, res) {
 
   res.json({
     unix: data.getTime(),
-    utc: data.toUTCSting
+    utc: data.toUTCString
   });
 
   app.get("/api", (req, res) => {
     res.json({
       unix: new Date().getTime(),
-      utx: new Date().toUTCSting()
+      utx: new Date().toUTCString()
     });
   })
 });
