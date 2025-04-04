@@ -25,11 +25,11 @@ const seDataInvalida = (data) => data.toUTCSting() === "Data Inválida"
 app.get("/api/:data", function (req, res) {
   let data = new Date(req.params.data)
 
-  if(dataInvalida(data)){
+  if(seDataInvalida(data)){
     data = new Date(+req.params.data)
   }
 
-  if(dataInvalida(data)){
+  if(seDataInvalida(data)){
     res.json({error: "Data inválida"})
     return
   }
